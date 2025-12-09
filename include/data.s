@@ -41,9 +41,10 @@ food_table:
 
 //----------------------------------------------
 // Simple delay loop to control game speed
+// Uses delay_current for variable speed
 //----------------------------------------------
 delay:
-    ldx #$80
+    ldx delay_current
 .outer:
     ldy #$ff
 .inner:
@@ -51,6 +52,38 @@ delay:
     bne .inner
     dex
     bne .outer
+    rts
+
+//----------------------------------------------
+// Update speed - called each game tick
+// Decreases delay over time (speeds up game)
+//----------------------------------------------
+update_speed:
+    // decrement speed timer
+    dec speed_timer
+    bne .no_speed_change
+
+    // reset speed timer
+    lda #SPEED_INCREASE_INTERVAL
+    sta speed_timer
+
+    // check if we're already at max speed
+    lda delay_current
+    cmp #DELAY_MIN
+    beq .no_speed_change
+    bcc .no_speed_change    // safety check
+
+    // decrease delay (increase speed)
+    dec delay_current
+
+    // also decrease star timeout over time (stars vanish faster)
+    lda star_timeout
+    cmp #STAR_TIMEOUT_MIN
+    beq .no_speed_change
+    bcc .no_speed_change
+    dec star_timeout
+
+.no_speed_change:
     rts
 
 //----------------------------------------------

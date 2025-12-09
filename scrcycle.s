@@ -37,9 +37,11 @@ main_loop:
     jsr update_body    // update body positions before collision check
     jsr check_collision
     jsr check_food     // check food before drawing so new food appears immediately
+    jsr update_star    // handle star spawn/timeout
     jsr draw_snake     // draw last so everything is up-to-date
     jsr increment_score
     jsr draw_score
+    jsr update_speed   // gradually increase speed over time
     jmp main_loop
 
 game_over_loop:
