@@ -15,13 +15,13 @@ c2 -X                 # Build without executing
 c2 --clean            # Remove intermediate files
 ```
 
-The c2 assembler is located at `~/bin/c2`. Build configuration is in `scrcycle.c2.json`.
+The c2 assembler is located at `~/bin/c2`. Build configuration is in `snakie.c2.json`.
 
 ## Architecture
 
 ### Module Organization
 
-- `scrcycle.s` - Main entry point and game loop
+- `snakie.s` - Main entry point and game loop
 - `include/constants.s` - Game tuning constants and zero-page variable definitions
 - `include/screen.s` - Screen initialization and utilities
 - `include/input.s` - Keyboard input (WASD controls)

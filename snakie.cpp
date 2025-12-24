@@ -1,9 +1,9 @@
 #include "c2/c64/c64.h"
 
-class c2_project_scrcycle : public c64
+class c2_project_snakie : public c64
 {
 public:
-	c2_project_scrcycle(cmdi *pcmd):c64(pcmd){}
+	c2_project_snakie(cmdi *pcmd):c64(pcmd){}
 
 C2_SECTION_TOP
 
@@ -11,7 +11,7 @@ C2_SECTION_TOP
 	{
 		C2_SECTION_ASM
 		{
-			#include "scrcycle.s"
+			#include "snakie.s"
 		}
 	}
 
@@ -33,4 +33,4 @@ C2_SECTION_TOP
 	}
 };
 
-c2i *c2_create_object_instance(cmdi *pcmd) {return new c2_project_scrcycle(pcmd);}
+c2i *c2_create_object_instance(cmdi *pcmd) {return new c2_project_snakie(pcmd);}

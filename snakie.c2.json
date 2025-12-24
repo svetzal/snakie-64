@@ -1,0 +1,13 @@
+{
+	"title": "snakie",
+	"basedir": ".",
+	"arguments": "--out-prg - + snakie.prg",
+	"execute": "/Applications/vice-arm64-gtk3-3.9/bin/c1541 -format snakie,id d64 snakie.d64 -attach snakie.d64 -write snakie.prg snakie && /Applications/vice-arm64-gtk3-3.9/bin/x64sc snakie.d64",
+	"template": "c64",
+	"files": [
+		"snakie.cpp": {
+			"c2": true,
+			"flags": "-O0"
+		}
+	]
+}
