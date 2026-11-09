@@ -1,3 +1,6 @@
 snakie.d64
 snakie.prg
 .im
+
+# Claude Code local settings can hold approved commands verbatim, secrets included
+**/.claude/settings.local.json
